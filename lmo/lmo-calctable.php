@@ -1,4 +1,4 @@
-<?php 
+<?php
 /** Liga Manager Online 4
 *
 * http://lmo.sourceforge.net/
@@ -16,8 +16,8 @@
 * REMOVING OR CHANGING THE COPYRIGHT NOTICES IS NOT ALLOWED!
 *
 */
- 
- 
+
+
 if ($file != "") {
   if (!isset($tabtype)) {
     $tabtype = 0;
@@ -34,11 +34,11 @@ if ($file != "") {
   $etore = array_pad($array, $anzteams+1, "0");
   $atore = array_pad($array, $anzteams+1, "0");
   $dtore = array_pad($array, $anzteams+1, "0");
-// Dart Patch
+//Dart Patch
   $psaetze = array_pad($array, $anzteams+1, "0");
   $msaetze = array_pad($array, $anzteams+1, "0");
   $dsaetze = array_pad($array, $anzteams+1, "0");
-// Dart Patch
+//Dart Patch
   $maxs0 = array_pad($array, $anzteams+1, "&nbsp;");
   $maxs1 = array_pad($array, $anzteams+1, "0");
   $maxs2 = array_pad($array, $anzteams+1, "0");
@@ -49,7 +49,7 @@ if ($file != "") {
   $ser2 = array_pad($array, $anzteams+1, "0");
   $ser3 = array_pad($array, $anzteams+1, "0");
   $ser4 = array_pad($array, $anzteams+1, "0");
-   
+
   $tab0 = array();
   $stt = 0;
   $hoy = 0;
@@ -60,8 +60,8 @@ if ($file != "") {
     if ($tabtype == 4 || $newtabtype == 4) {
       $endtab = ($anzst/2);
     }
-    for ($j = $hoy; $j < $endtab; $j++) {
-      for ($i = 0; $i < $anzsp; $i++) {
+    for ((int)$j = $hoy; $j < $endtab; $j++) {
+      for ((int)$i = 0; $i < $anzsp; $i++) {
         if ($tabtype == 3 || $newtabtype == 3) {
           $hoy = ($anzst/2);
         }
@@ -91,10 +91,10 @@ if ($file != "") {
           if (($a == $teama[$j][$i]) || (($a == $teamb[$j][$i]) && ($msieg[$j][$i] == 3))) {
             $etore[$a] = $etore[$a]+$goala[$j][$i];
             $atore[$a] = $atore[$a]+$goalb[$j][$i];
-// Dart Patch
-            $psaetze[$a] = $psaetze[$a]+$satza[$j][$i];
-            $msaetze[$a] = $msaetze[$a]+$satzb[$j][$i];            
-// Dart Patch
+//Dart Patch
+            $psaetze[$a] = $psaetze[$a]+(int)$satza[$j][$i];
+            $msaetze[$a] = $msaetze[$a]+(int)$satzb[$j][$i];
+//Dart Patch
             if ($msieg[$j][$i] == 1) {
               $siege[$a] = $siege[$a]+1;
               $punkte[$a] = $punkte[$a]+$p0s;
@@ -180,10 +180,10 @@ if ($file != "") {
           if (($a == $teamb[$j][$i]) && ($msieg[$j][$i] != 3)) {
             $etore[$a] = $etore[$a]+$goalb[$j][$i];
             $atore[$a] = $atore[$a]+$goala[$j][$i];
-// Dart Patch
-            $psaetze[$a] = $psaetze[$a]+$satzb[$j][$i];
-            $msaetze[$a] = $msaetze[$a]+$satza[$j][$i];            
-// Dart Patch
+//Dart Patch
+            $psaetze[$a] = (int)$psaetze[$a]+(int)$satzb[$j][$i];
+            $msaetze[$a] = (int)$msaetze[$a]+(int)$satza[$j][$i];
+//Dart Patch
             if ($msieg[$j][$i] == 2) {
               $siege[$a] = $siege[$a]+1;
               $punkte[$a] = $punkte[$a]+$p0s;
@@ -275,7 +275,7 @@ if ($file != "") {
       $atore[$a] = $atore[$a]-$torkorrektur2[$a]; // Hack-Straftore
     }
     $dtore[$a] = $etore[$a]-$atore[$a];
-    $dsaetze[$a] = $psaetze[$a]-$msaetze[$a];		// Dart Patch
+    $dsaetze[$a] = $psaetze[$a]-$msaetze[$a];     //Dart Patch
     if ($endtab >= $strafdat[$a] && ($tabtype == 0 or ($tabtype == 3 && $strafdat[$a] > ($hoy = ($anzst/2))) or ($tabtype == 4 && $strafdat[$a] <= ($endtab = ($anzst/2))))) {
       // Hack-Straftore
       $punkte[$a] = $punkte[$a]-$strafp[$a];
@@ -283,17 +283,17 @@ if ($file != "") {
         $negativ[$a] = $negativ[$a]-$strafm[$a];
       }
     } // Hack-Straftore
-// Dart Patch
+//Dart Patch
     if ($kegel == 0 || $ligaType == "dart" ) {
       if ($ligaType == "dart") {
         array_push($tab0, (50000000+$punkte[$a]).(50000000-$negativ[$a]).(50000000+$dtore[$a]).(50000000+$etore[$a]).(50000000+$dsaetze[$a]).(50000000+$psaetze[$a]).(50000000+$a));
       } else {
         array_push($tab0, (50000000+$punkte[$a]).(50000000-$negativ[$a]).(50000000+$dtore[$a]).(50000000+$etore[$a]).(50000000+$a));
-      }  
+      }
     } else {
       array_push($tab0, (50000000+$punkte[$a]).(50000000-$negativ[$a]).(50000000+$etore[$a]).(50000000+$dtore[$a]).(50000000+$a));
     }
-// Dart Patch
+//Dart Patch
   }
   rsort($tab0, SORT_STRING);
   if ($direkt == 1) {
@@ -321,7 +321,7 @@ if ($file != "") {
           require(PATH_TO_LMO."/lmo-calctable1.php");
           if ($anzcnt > 0) {
             for ($b = 1; $b <= count($tab1); $b++) {
-              for($f = 0; $f < count($tab0); $f++) {
+              for ($f = 0; $f < count($tab0); $f++) {
                 if (intval(substr($tab0[$f], -7)) == intval(substr($tab1[$b-1], -7))) {
                   $tab0[$f] = substr($tab0[$f], 0, 17-strlen($b)).$b.substr($tab0[$f], 17);
                 }
@@ -352,7 +352,7 @@ if ($file != "") {
         $tab0[$ih] = $handd.substr($tab0[$ih], 2);
       }
       sort($tab0, SORT_STRING);
-       
+
     }
   }
   //print_r($tab0);
