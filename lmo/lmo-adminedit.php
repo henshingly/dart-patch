@@ -415,24 +415,25 @@ if ($file != "") {
   }?>
             </th><?php
   if ($goalfaktor!=1) {?>
-            <th style="text-align:center" class="nobr" colspan="<?php if ($ligaType == "dart") echo $breite-11; else echo $breite-13; ?>"><?php if ($goalfaktor!=1) {echo "(".$text[553+log10($goalfaktor)].")";}?></th><?php //Dart Patch
+            <th style="text-align:center" class="nobr" colspan="<?php if ($ligaType == "dart") echo $breite-14; else echo $breite-13; ?>"><?php if ($goalfaktor!=1) {echo "(".$text[553+log10($goalfaktor)].")";}?></th><?php //Dart Patch
   } else {?>
-            <th style="text-align:center" colspan="<?php if ($ligaType == "dart") echo $breite-11; else echo $breite-13; ?>"><?php if ($ligaType == "dart") echo $text['dart'][2] . "&nbsp;&nbsp;"; ?>&nbsp;</th><?php //Dart Patch
+            <th style="text-align:center" class="nobr" colspan="<?php if ($ligaType == "dart") echo $breite-14; else echo $breite-13; ?>"><?php if ($ligaType == "dart") echo $text['dart'][2] . "&nbsp;&nbsp;"; ?>&nbsp;</th><?php //Dart Patch
   }
 // Dart Patch
   if ($ligaType == "dart") :
-    $DartLigaBreite = 4; ?>
+    $DartLigaBreite = 5; ?>
             <th style="text-align:center" colspan="<?php echo $DartLigaBreite;?>"> <?php echo $text['dart'][7]?></th>
+            <th style="text-align:center" colspan="2"></th>
 <?php $breite += $DartLigaBreite;
   endif;
 // Dart Patch
   if ($lmtype==0){ ?>
-            <th class="nobr"><acronym title="<?php echo $text[213] ?>"><img src="<?php echo URL_TO_IMGDIR;?>/paragraph.gif" width="17" height="17" alt="<?php echo $text[217]; ?>"></acronym></th><?php
+            <th style="text-align:center" class="nobr"><acronym title="<?php echo $text[213] ?>"><img src="<?php echo URL_TO_IMGDIR;?>/paragraph.gif" width="17" height="17" alt="<?php echo $text[217]; ?>"></acronym></th><?php
   }?>
-            <th class="nobr"><acronym title="<?php echo $text[112] ?>"><img src="<?php echo URL_TO_IMGDIR;?>/notiz.gif" width="17" height="17" alt="<?php echo $text[218]; ?>"></acronym></th>
-            <th class="nobr"><acronym title="<?php echo $text[263] ?>"><img src="<?php echo URL_TO_IMGDIR;?>/spielbericht.gif" width="17" height="17" alt="<?php echo $text[262]; ?>"></acronym></th><?php
+            <th style="text-align:center" class="nobr"><acronym title="<?php echo $text[112] ?>"><img src="<?php echo URL_TO_IMGDIR;?>/notiz.gif" width="17" height="17" alt="<?php echo $text[218]; ?>"></acronym></th>
+            <th style="text-align:center" class="nobr"><acronym title="<?php echo $text[263] ?>"><img src="<?php echo URL_TO_IMGDIR;?>/spielbericht.gif" width="17" height="17" alt="<?php echo $text[262]; ?>"></acronym></th><?php
   if ($_SESSION['lmouserok']==2 && $ftest0==1){ ?>
-            <th class="nobr"><acronym title="<?php echo $text['tipp'][57] ?>"><?php echo $text['tipp'][57]; ?></acronym></th><?php
+            <th style="text-align:center" class="nobr"><acronym title="<?php echo $text['tipp'][57] ?>"><?php echo $text['tipp'][57]; ?></acronym></th><?php
   }?>
           </tr><?php
   if ($lmtype != 0) {
