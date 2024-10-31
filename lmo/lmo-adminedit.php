@@ -537,16 +537,16 @@ if ($file != "") {
 <?php
       if ($ligaType == "dart" ) : ?>
             <td width="2">&nbsp;</td>
-            <td class="lmoBackMarkierung" align="right"><input title="<?php echo $text['dart'][21] ?>" class="lmo-formular-input" type="text" name="xsatza<?php echo $i; ?>" size="1" maxlength="4" value="<?php echo $satza[$st-1][$i]; ?>" tabindex="<?php echo $i;?>9" onChange="lmotorgte('b','<?php echo $i; ?>')" onKeyDown="lmotorclk('b','<?php echo $i; ?>',event.keyCode)"></td>
+            <td class="lmoBackMarkierung" align="right"><input title="<?php echo $text['dart'][21] ?>" class="lmo-formular-input" type="text" name="xsatza<?php echo $i; ?>" size="1" maxlength="4" value="<?php echo $satza[$st-1][$i]; ?>" tabindex="<?php echo $i;?>09" onChange="lmotorgte('b','<?php echo $i; ?>')" onKeyDown="lmotorclk('b','<?php echo $i; ?>',event.keyCode)"></td>
             <td class="lmoBackMarkierung" align="center" width="8">:</td>
-            <td class="lmoBackMarkierung" align="right"><input title="<?php echo $text['dart'][22] ?>" class="lmo-formular-input" type="text" name="xsatzb<?php echo $i; ?>" size="1" maxlength="4" value="<?php echo $satzb[$st-1][$i]; ?>" tabindex="<?php echo $i;?>9" onChange="lmotorgte('b','<?php echo $i; ?>')" onKeyDown="lmotorclk('b','<?php echo $i; ?>',event.keyCode)"></td>
+            <td class="lmoBackMarkierung" align="right"><input title="<?php echo $text['dart'][22] ?>" class="lmo-formular-input" type="text" name="xsatzb<?php echo $i; ?>" size="1" maxlength="4" value="<?php echo $satzb[$st-1][$i]; ?>" tabindex="<?php echo $i;?>10" onChange="lmotorgte('b','<?php echo $i; ?>')" onKeyDown="lmotorclk('b','<?php echo $i; ?>',event.keyCode)"></td>
 <!-- Dart Patch  -->
 <?php
       endif;
       if ($spez==1){?>
             <td width="2">&nbsp;</td>
             <td>
-              <select class="lmo-formular-input" name="xmspez<?php echo $i; ?>" onChange="dolmoedit()" tabindex="<?php echo $i;?>09" >
+              <select class="lmo-formular-input" name="xmspez<?php echo $i; ?>" onChange="dolmoedit()" tabindex="<?php echo $i; if ($ligaType == "dart" ) { echo "11"; } else { echo "09";}?>" >
                 <option<?php if ($mspez[$st-1][$i]=="&nbsp;"){echo " selected";}?>>_</option>
 
 <!-- Dart Patch  -->
@@ -568,7 +568,7 @@ if ($file != "") {
       }?>
             <td width="2">&nbsp;</td>
             <td align="center">
-              <select id="gT<?php echo $i?>" class="lmo-formular-input" name="xmsieg<?php echo $i; ?>" onChange="dolmoedit()" tabindex="<?php echo $i;?>10" >
+              <select id="gT<?php echo $i?>" class="lmo-formular-input" name="xmsieg<?php echo $i; ?>" onChange="dolmoedit()" tabindex="<?php echo $i; if ($ligaType == "dart" ) { echo "12"; } else { echo "10";}?>?>" >
                 <option value="0"<?php if ($msieg[$st-1][$i]==0){echo " selected";}?>>_</option>
                 <option value="1"<?php if ($msieg[$st-1][$i]==1){echo " selected";}?>><?php echo $text[214]?></option>
                 <option value="2"<?php if ($msieg[$st-1][$i]==2){echo " selected";}?>><?php echo $text[215]?></option>
@@ -579,12 +579,12 @@ if ($file != "") {
       }?>
             </td>
             <td align="center">
-              <input id="n<?php echo $i?>" class="lmo-formular-input" type="text" name="xmnote<?php echo $i; ?>" tabindex="<?php echo $i;?>11" size="16" maxlength="255" value="<?php echo htmlentities($mnote[$st-1][$i]); ?>" onChange="dolmoedit()"><?php
+              <input id="n<?php echo $i?>" class="lmo-formular-input" type="text" name="xmnote<?php echo $i; ?>" tabindex="<?php echo $i; if ($ligaType == "dart" ) { echo "13"; } else { echo "11";}?>" size="16" maxlength="255" value="<?php echo htmlentities($mnote[$st-1][$i]); ?>" onChange="dolmoedit()"><?php
       if (trim($mnote[$st-1][$i]) == '') {?>
               <script type="text/javascript">document.getElementById('n<?php echo $i?>').style.display='none';document.write('<a href="#" onClick="this.style.display=\'none\';document.getElementById(\'n<?php echo $i?>\').style.display=\'inline\';return false;">+</a>');</script><?php
       }?>
             </td>
-            <td align="center"><input id="s<?php echo $i?>" class="lmo-formular-input" type="text" name="xmberi<?php echo $i; ?>" size="16" maxlength="255" value="<?php echo htmlentities($mberi[$st-1][$i]); ?>" onChange="dolmoedit()"><?php
+            <td align="center"><input id="s<?php echo $i?>" class="lmo-formular-input" type="text" name="xmberi<?php echo $i; ?>" tabindex="<?php echo $i; if ($ligaType == "dart" ) { echo "14"; } else { echo "12";}?>" size="16" maxlength="255" value="<?php echo htmlentities($mberi[$st-1][$i]); ?>" onChange="dolmoedit()"><?php
       if (trim($mberi[$st-1][$i]) == '') {?>
               <script type="text/javascript">document.getElementById('s<?php echo $i?>').style.display='none';document.write('<a href="#" onClick="this.style.display=\'none\';document.getElementById(\'s<?php echo $i?>\').style.display=\'inline\';return false;">+</a>');</script><?php
       }?>
@@ -592,7 +592,7 @@ if ($file != "") {
       /*Tippspiel-Addon*/
       if ($_SESSION['lmouserok']==2 && $ftest0==1){ ?>
             <td>
-              <select class="lmo-formular-input" name="xmtipp<?php echo $i; ?>" onChange="dolmoedit()" tabindex="<?php echo $i;?>12" >
+              <select class="lmo-formular-input" name="xmtipp<?php echo $i; ?>" onChange="dolmoedit()" tabindex="<?php echo $i; if ($ligaType == "dart" ) { echo "15"; } else { echo "13";}?>" >
                 <option value="0"<?php if ($mtipp[$st-1][$i]<1){echo " selected";}?>>_</option>
                 <option value="1"<?php if ($mtipp[$st-1][$i]==1){echo " selected";}?>><?php echo $text['tipp'][199]?></option>
               </select>
