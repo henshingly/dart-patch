@@ -36,7 +36,6 @@ if ($file!="") {
         $favteam=isset($_POST["xfavteam"])?trim($_POST["xfavteam"]):$favteam;
         $selteam=isset($_POST["xselteam"])?trim($_POST["xselteam"]):$selteam;
 // Dart Patch
-        //$ligaType = isset($_POST['xligaType'],$existLigaType)?trim($_POST['xligaType']):$ligaType;
         $ligaType = isset($_POST['xligaType'])?trim($_POST['xligaType']):$ligaType;
 // Dart Patch
         if ($lmtype==1) {

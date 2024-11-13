@@ -21,7 +21,7 @@
 020=Das Spiel wurde abgebrochen.
 021=Gewonnene Legs Heim (0 - 9999)
 022=Gewonnene Legs Gast (0 - 9999)
-023=Typ der Liga (Bis auf Dart noch ohne Funktion)
-024=Liga Typ
-025=Spielbeginn
+023=
+024=
+025=
 99999=Dies ist ein Test-Text Block aus der Lang Datei 99999

@@ -246,8 +246,8 @@ if ($newpage==0){ ?>
 <!-- Dart Patch -->
           <tr>
             <td width="20">&nbsp;</td>
-            <td class="nobr" align="right"><acronym title="<?php echo $text['dart'][23] ?>"><?php echo $text['dart'][24]; ?></acronym></td>
-            <td class="nobr" align="left"><acronym title="<?php echo $text['dart'][23] ?>">
+            <td class="nobr" align="right"><acronym title="<?php echo $text[1001] ?>"><?php echo $text[1000]; ?></acronym></td>
+            <td class="nobr" align="left"><acronym title="<?php echo $text[1001] ?>">
               <select class="lmo-formular-input" name="xligaType" onChange="dolmoedit()">
                 <option value="sonstiges"<?php if ($xligaType==0) echo " selected";?>><?php echo $text[1002]?></option>
                 <option value="dart"<?php if ($xligaType==1) echo " selected";?>><?php echo $text[1003]?></option>
