@@ -21,8 +21,8 @@
 
 $trans_lang = array( 'Monday' => $text['date'][0], 'Tuesday' => $text['date'][1], 'Wednesday' => $text['date'][2], 'Thursday' => $text['date'][3], 'Friday' => $text['date'][4], 'Saturday' => $text['date'][5], 'Sunday' => $text['date'][6], 'Mon' => $text['date'][7], 'Tue' => $text['date'][8], 'Wed' => $text['date'][9], 'Thu' => $text['date'][10], 'Fri' => $text['date'][11], 'Sat' => $text['date'][12], 'Sun' => $text['date'][13], 'January' => $text['date'][14], 'February' => $text['date'][15], 'March' => $text['date'][16], 'April' => $text['date'][17], 'May' => $text['date'][18], 'June' => $text['date'][19], 'July' => $text['date'][20], 'August' => $text['date'][21], 'September' => $text['date'][22], 'October' => $text['date'][23], 'November' => $text['date'][24], 'December' => $text['date'][25], 'Jan' => $text['date'][26], 'Feb' => $text['date'][27], 'Mar' => $text['date'][28], 'Apr' => $text['date'][29], 'May' => $text['date'][30], 'Jun' => $text['date'][31], 'Jul' => $text['date'][32], 'Aug' => $text['date'][33], 'Sep' => $text['date'][34], 'Oct' => $text['date'][35], 'Nov' => $text['date'][36], 'Dec' => $text['date'][37] );
 
-if (!isset($namepkt)) {$namepkt="";}
-if (!isset($nametor)) {$nametor="";}
+if (!isset($namepkt)) {$namepkt = "";}
+if (!isset($nametor)) {$nametor = "";}
 
 if ($st > 0) {
   $actual = $st;
@@ -31,7 +31,7 @@ if ($st > 0) {
 }
 
 if ($lmtype == 0) {
-  for ($i1 = 0; $i1 < $anzsp; $i1++) {
+  for ($i1 = 0; $i1 < $anzsp; $i1 ++) {
     if ($goala[$actual - 1][$i1] == "-1") $goala[$actual - 1][$i1] = "_";
     if ($goalb[$actual - 1][$i1] == "-1") $goalb[$actual - 1][$i1] = "_";
     if ($satza[$actual - 1][$i1] == "-1") $satza[$actual - 1][$i1] = "_";  //Dart Patch
@@ -41,7 +41,7 @@ if ($lmtype == 0) {
   $endtab = $actual;
   include(PATH_TO_LMO . "/lmo-calctable.php");
 
-  for ($i1 = 0; $i1 < $anzsp; $i1++) {
+  for ($i1 = 0; $i1 < $anzsp; $i1 ++) {
     if ($goala[$actual - 1][$i1] == "_") $goala[$actual - 1][$i1] = "-1";
     if ($goalb[$actual - 1][$i1] == "_") $goalb[$actual - 1][$i1] = "-1";
     if ($satza[$actual - 1][$i1] == "_") $satza[$actual - 1][$i1] = "-1";  //Dart Patch
@@ -61,7 +61,7 @@ if ($lmtype == 0 && $st > 0) {
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <title><?php echo $titel?></title>
+  <title><?php echo $titel;?></title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
   <style type="text/css">
     body {background:#fff; color:#000; font-family: Verdana,arial,helvetica 12; max-width:200mm;max-height:285mm;}

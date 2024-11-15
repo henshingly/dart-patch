@@ -166,12 +166,12 @@ include(PATH_TO_LMO."/lmo-adminsubnavi.php");
               <select class="lmo-formular-input" name="xligaType" onChange="dolmoedit()">
                 <option value="sonstiges"<?php if ($ligaType=="sonstiges") echo " selected";?>><?php echo $text[1002]?></option>
                 <option value="dart"<?php if ($ligaType=="dart") echo " selected";?>><?php echo $text[1003]?></option>
+                <option value="volleyball"<?php if ($ligaType=="volleyball") echo " selected";?>><?php echo $text[2000]?></option>
                 <option value="handball"<?php if ($ligaType=="handball") echo " selected";?>><?php echo $text[1004]?></option>
                 <option value="fussball"<?php if ($ligaType=="fussball") echo " selected";?>><?php echo $text[1005]?></option>
                 <option value="eishockey"<?php if ($ligaType=="eishockey") echo " selected";?>><?php echo $text[1006]?></option>
-                <option value="volleyball"<?php if ($ligaType=="volleyball") echo " selected";?>><?php echo $text[2000]?></option>
               </select></td>
-            <td class="nobr" align="left"><acronym title="<?php echo $text['dart'][23];?>"><?php echo $text['dart'][24];?></acronym></td>
+            <td class="nobr" align="left"><acronym title="<?php echo $text[1001];?>"><?php echo $text[1000];?></acronym></td>
           </tr>
 <!-- Dart Patch -->
 <?php
@@ -461,13 +461,13 @@ include(PATH_TO_LMO."/lmo-adminsubnavi.php");
                   <td class="nobr" align="center"><input class="lmo-formular-input" name="xpnn" size="2" onChange="dolmoedit()" value=<?php echo $pnn?>></td>
                 </tr>
                 <tr>
-                  <td class="nobr" align="right"><?php if ($ligaType == "dart") echo $text['dart'][5]; else echo $text[203]; ?>&nbsp;</td>
+                  <td class="nobr" align="right"><?php if ($ligaType == "dart") echo $text['dart'][5]; else echo $text[203]; ?>&nbsp;</td><!-- Dart Patch -->
                   <td class="nobr" align="center"><input class="lmo-formular-input" name="xpxs" size="2" onChange="dolmoedit()" value=<?php echo $pxs?>></td>
                   <td class="nobr" align="center"><input class="lmo-formular-input" name="xpxu" size="2" onChange="dolmoedit()" value=<?php echo $pxu?>></td>
                   <td class="nobr" align="center"><input class="lmo-formular-input" name="xpxn" size="2" onChange="dolmoedit()" value=<?php echo $pxn?>></td>
                 </tr>
                 <tr>
-                  <td class="nobr" align="right"><?php if ($ligaType == "dart") echo $text['dart'][6]; else echo $text[204]; ?>&nbsp;</td>
+                  <td class="nobr" align="right"><?php if ($ligaType == "dart") echo $text['dart'][6]; else echo $text[204]; ?>&nbsp;</td><!-- Dart Patch -->
                   <td class="nobr" align="center"><input class="lmo-formular-input" name="xpps" size="2" onChange="dolmoedit()" value=<?php echo $pps?>></td>
                   <td class="nobr" align="center"><input class="lmo-formular-input" name="xppu" size="2" onChange="dolmoedit()" value=<?php echo $ppu?>></td>
                   <td class="nobr" align="center"><input class="lmo-formular-input" name="xppn" size="2" onChange="dolmoedit()" value=<?php echo $ppn?>></td>

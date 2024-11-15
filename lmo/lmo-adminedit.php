@@ -395,7 +395,7 @@ if ($file != "") {
         <input type="hidden" name="st" value="<?php echo $st; ?>">
         <table class="lmoInner" cellspacing="0" cellpadding="0" border="0">
           <tr>
-            <th class="nobr" align="left" colspan="<?php if ($ligaType == "dart") echo $breite-12; else echo $breite-10; ?>"><?php //Dart Patch
+            <th class="nobr" style="text-align:left" colspan="<?php if ($ligaType == "dart") echo $breite-12; else echo $breite-10; ?>"><?php //Dart Patch
   echo $st.". ".$text[2];
   if ($datum1[$st-1] != "") {
     $datum = explode('.', $datum1[$st-1]);
@@ -420,12 +420,13 @@ if ($file != "") {
             <th style="text-align:center" class="nobr" colspan="<?php if ($ligaType == "dart") echo $breite-14; else echo $breite-13; ?>"><?php if ($ligaType == "dart") echo $text['dart'][2] . "&nbsp;&nbsp;"; ?>&nbsp;</th><?php //Dart Patch
   }
 // Dart Patch
-  if ($ligaType == "dart") :
+  if ($ligaType == "dart"){
     $DartLigaBreite = 5; ?>
             <th style="text-align:center" colspan="<?php echo $DartLigaBreite;?>"> <?php echo $text['dart'][7]?></th>
             <th style="text-align:center" colspan="2"></th>
-<?php $breite += $DartLigaBreite;
-  endif;
+<?php
+    $breite += $DartLigaBreite;
+  }
 // Dart Patch
   if ($lmtype==0){ ?>
             <th style="text-align:center" class="nobr"><acronym title="<?php echo $text[213] ?>"><img src="<?php echo URL_TO_IMGDIR;?>/paragraph.gif" width="17" height="17" alt="<?php echo $text[217]; ?>"></acronym></th><?php
@@ -514,10 +515,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung nobr" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i; ?>\',1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i; ?>\',1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i; ?>\',-1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i; ?>\',-1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
@@ -526,7 +527,7 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td valign="bottom"><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i; ?>\',1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td valign="bottom"><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i; ?>\',1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
                   <td valign="top"><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i; ?>\',-1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
@@ -575,18 +576,18 @@ if ($file != "") {
                 <option value="3"<?php if ($msieg[$st-1][$i]==3){echo " selected";}?>><?php echo $text[216]?></option>
               </select><?php
       if ($msieg[$st-1][$i]==0) {?>
-              <script type="text/javascript">document.getElementById('gT<?php echo $i?>').style.display='none';document.write('<a href="#" onClick="this.style.display=\'none\';document.getElementById(\'gT<?php echo $i?>\').style.display=\'inline\';return false;">+</a>');</script><?php
+              <script type="text/javascript">document.getElementById('gT<?php echo $i?>').style.display='none';document.write('<a href="#" onClick="this.style.display=\'none\';document.getElementById(\'gT<?php echo $i?>\').style.display=\'inline\';return FALSE;">+</a>');</script><?php
       }?>
             </td>
             <td align="center">
               <input id="n<?php echo $i?>" class="lmo-formular-input" type="text" name="xmnote<?php echo $i; ?>" tabindex="<?php echo $i; if ($ligaType == "dart" ) { echo "13"; } else { echo "11";}?>" size="16" maxlength="255" value="<?php echo htmlentities($mnote[$st-1][$i]); ?>" onChange="dolmoedit()"><?php
       if (trim($mnote[$st-1][$i]) == '') {?>
-              <script type="text/javascript">document.getElementById('n<?php echo $i?>').style.display='none';document.write('<a href="#" onClick="this.style.display=\'none\';document.getElementById(\'n<?php echo $i?>\').style.display=\'inline\';return false;">+</a>');</script><?php
+              <script type="text/javascript">document.getElementById('n<?php echo $i?>').style.display='none';document.write('<a href="#" onClick="this.style.display=\'none\';document.getElementById(\'n<?php echo $i?>\').style.display=\'inline\';return FALSE;">+</a>');</script><?php
       }?>
             </td>
             <td align="center"><input id="s<?php echo $i?>" class="lmo-formular-input" type="text" name="xmberi<?php echo $i; ?>" tabindex="<?php echo $i; if ($ligaType == "dart" ) { echo "14"; } else { echo "12";}?>" size="16" maxlength="255" value="<?php echo htmlentities($mberi[$st-1][$i]); ?>" onChange="dolmoedit()"><?php
       if (trim($mberi[$st-1][$i]) == '') {?>
-              <script type="text/javascript">document.getElementById('s<?php echo $i?>').style.display='none';document.write('<a href="#" onClick="this.style.display=\'none\';document.getElementById(\'s<?php echo $i?>\').style.display=\'inline\';return false;">+</a>');</script><?php
+              <script type="text/javascript">document.getElementById('s<?php echo $i?>').style.display='none';document.write('<a href="#" onClick="this.style.display=\'none\';document.getElementById(\'s<?php echo $i?>\').style.display=\'inline\';return FALSE;">+</a>');</script><?php
       }?>
             </td><?php
       /*Tippspiel-Addon*/
@@ -762,10 +763,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',-1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',-1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
@@ -774,10 +775,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',-1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',-1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
@@ -789,10 +790,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',-1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',-1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
@@ -801,10 +802,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',-1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',-1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
@@ -819,10 +820,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',-1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',-1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
@@ -831,10 +832,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',-1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',-1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
@@ -846,10 +847,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',-1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',-1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
@@ -858,10 +859,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',-1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',-1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
@@ -876,10 +877,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',-1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',-1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
@@ -888,10 +889,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',-1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',-1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
@@ -903,10 +904,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>f\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>f\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>f" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',-1);return false;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'b\',\'<?php echo $i.$n; ?>\',-1);return FALSE;" title="<?php echo $text[121]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>d\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>d\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>d" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
@@ -915,10 +916,10 @@ if ($file != "") {
             <td class="lmoBackMarkierung" align="center">
               <table cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>a\',img1)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>a\',img0)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin0.gif" name="ximg<?php echo $i.$n; ?>a" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
                 <tr>
-                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',-1);return false;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
+                  <td><script type="text/javascript">document.write('<a href="#" onclick="lmotorauf(\'a\',\'<?php echo $i.$n; ?>\',-1);return FALSE;" title="<?php echo $text[120]; ?>" onMouseOver="lmoimg(\'<?php echo $i.$n; ?>b\',img3)" onMouseOut="lmoimg(\'<?php echo $i.$n; ?>b\',img2)"><img src="<?php echo URL_TO_IMGDIR?>/lmo-admin2.gif" name="ximg<?php echo $i.$n; ?>b" width="7" height="7" border="0"><\/a>')</script></td>
                 </tr>
               </table>
             </td>
